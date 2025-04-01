@@ -1,31 +1,35 @@
-<%@ page import="java.util.*, mypackage.Task" %>
-<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.HashMap" %>
+
+<%
+    ArrayList<HashMap<String, String>> tasks = (ArrayList<HashMap<String, String>>) session.getAttribute("tasks");
+%>
+
 <html>
 <head>
-    <title>Liste des tâches</title>
+    <title>Mes tâches</title>
 </head>
 <body>
-    <h2>Mes Tâches</h2>
-    <%
-        HttpSession session = request.getSession();
-        ArrayList<Task> tasks = (ArrayList<Task>) session.getAttribute("tasks");
+    <h2>Liste des tâches</h2>
 
+    <%
         if (tasks == null || tasks.isEmpty()) {
     %>
-        <p>Aucune tâche ajoutée pour l’instant.</p>
+        <p>Aucune tâche enregistrée.</p>
     <%
         } else {
-            for (Task t : tasks) {
+            for (HashMap<String, String> task : tasks) {
     %>
         <div style="border:1px solid #ccc; padding:10px; margin-bottom:10px;">
-            <strong><%= t.getTitle() %></strong><br>
-            <em><%= t.getDescription() %></em>
+            <strong><%= task.get("title") %></strong><br>
+            <em><%= task.get("description") %></em>
         </div>
     <%
             }
         }
     %>
-    <br>
-    <a href="index.jsp">Ajouter une nouvelle tâche</a>
+
+    <a href="index.jsp">← Retour à l’ajout</a>
 </body>
 </html>
