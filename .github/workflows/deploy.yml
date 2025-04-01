@@ -44,3 +44,4 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           source: build/damien.war
           target: /opt/tomcat/webapps/
+          
