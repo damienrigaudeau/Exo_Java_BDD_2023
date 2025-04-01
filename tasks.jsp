@@ -12,7 +12,7 @@
 
         if (tasks == null || tasks.isEmpty()) {
     %>
-        <p>Aucune tâche pour l’instant.</p>
+        <p>Aucune tâche ajoutée pour l’instant.</p>
     <%
         } else {
             for (Task t : tasks) {
@@ -26,6 +26,6 @@
         }
     %>
     <br>
-    <a href="index.jsp">Ajouter une tâche</a>
+    <a href="index.jsp">Ajouter une nouvelle tâche</a>
 </body>
 </html>
